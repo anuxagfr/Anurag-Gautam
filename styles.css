@@ -1,0 +1,186 @@
+ 
+        
+        /* Light Mode */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --card-bg: white;
+    --btn-bg: #007bff;
+    --btn-text: white;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode */
+.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #fff;
+    --card-bg: #2a2a2a;
+    --btn-bg: #00aaff;
+    --btn-text: #000;
+    --shadow-color: rgba(255, 255, 255, 0.2);
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Profile Card */
+.profile-card {
+    background: var(--card-bg);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    width: 350px;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+/* Social Icons */
+.social-icons {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+    padding: 8px;
+    background: var(--card-bg);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.social-item:hover {
+    background:#7073e0;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.social-item a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+a {
+    
+    text-decoration: none;
+}
+
+.social-item button {
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--btn-bg);
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.social-item button:hover {
+    color: #ff4081;
+    transform: scale(1.1);
+}
+
+/* Share Button */
+.share-btn {
+    //background: var(--btn-bg);
+    //color: var(--btn-text);
+    color:#161a2b;
+    border: none;
+    //padding: 10px 15px;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.share-btn:hover {
+      background:#7073e0;
+ 
+    color:#ffffff;
+    transform: scale(1.1);
+}
+
+ .share-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+       .share-btn1 {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+  
+    border: none;
+   padding: 5px 10px;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+    
