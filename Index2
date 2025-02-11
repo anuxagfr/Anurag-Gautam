@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Share with Slider, Names & QR Code</title>
+     <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   
+       
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>    
+        /* Light Mode */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --card-bg: white;
+    --btn-bg: #007bff;
+    --btn-text: white;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode */
+.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #fff;
+    --card-bg: #2a2a2a;
+    --btn-bg: #00aaff;
+    --btn-text: #000;
+    --shadow-color: rgba(255, 255, 255, 0.2);
+}
+
+/* General Styles 
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+*/
+/* Theme Toggle Button */
+#theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Profile Card */
+.profile-card {
+    background: var(--card-bg);
+    padding: 20px;    
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    width: 350px;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+        
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+/* Social Icons */
+.social-icons {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+    padding: 8px;
+    background: var(--card-bg);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.social-item:hover {
+    background:#7073e0;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.social-item a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+a {
+    
+    text-decoration: none;
+}
+
+.social-item button {
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--btn-bg);
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.social-item button:hover {
+    color: #ff4081;
+    transform: scale(1.1);
+}
+
+
+.share-btn:hover {
+      background:#7073e0;
+    color:#ffffff;
+    transform: scale(1.1);
+}
+
+ .share-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* Share Button */
+.share-btn {
+   
+    color:#161a2b;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;            
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        
+}
+       .share-btn1 {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 5px 10px;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+        
+        /* share box1*/
+        
+        .seiper-container2 {
+            width: 100px;
+            background: var(--card-bg);
+            overflow: hidden;
+            border-radius: 10px 0px 0px 10px ;
+            
+        }
+        
+        /* share box2*/
+        
+        .swiper-container {
+            width:100%;
+            background: var(--card-bg);            
+            overflow: hidden;
+            border-radius: 0px 10px 10px 0px ;
+        
+        }
+        
+        
+        .container3 {
+            width: 100%;
+            height: 80px;
+            max-width: 350px;
+            display: flex;  
+            background: var(--card-bg);
+            overflow: hidden;
+            border-radius: 10px 10px 10px 10px ;
+           
+        }
+        
+        /* Scan QR Code box */
+        .container5 {
+         width:auto;
+         margin:0px auto;
+         display: flex;  
+         background: var(--card-bg);
+         overflow: hidden;
+         border-radius: 10px 10px 10px 10px ;
+           
+        }
+        
+        .swiper-wrapper {
+            display: flex;
+        }
+        .swiper-slide {
+            display: flex;  
+            margin-top: 5px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            float: right;
+            transition: transform 0.2s;}
+     
+     
+ .share-btn:hover {transform: scale(1.1);}
+      .copy-link{ background: #ffffff; }
+      .x        { background: #ffffff; }
+      .share-all{ background: #ffffff; }
+      .facebook { background: #1877F2; }
+      .whatsapp { background: #25D366; }
+      .linkedin { background: #0077B5; }
+      .telegram { background: #0088CC; }
+      .reddit   { background: #FF4500; }
+      .email    { background: #D44638; }
+      .instagram{ background: #E1306C; }
+      .qr-code  { background: #ffffff; }
+      
+      .icon {
+            width: 25px;
+            height: 25px;
+        }
+        .social-name {
+            font-size: 12px;
+            margin: 5px 2px ;
+            font-weight: bold;
+        }
+        
+        h3{
+            
+            margin: 5px;
+        }
+        .container4 h2{
+          margin: 5px;
+        }
+        
+        
+        /* qr code  */
+        
+        #qr-container {
+            display: none;
+        }
+        
+#qrcode {
+        display: inline-block;
+        padding:5px;
+        background: white; 
+        border: 2px solid black; 
+        border-radius: 10px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+           
+    }
+     <!--        .close {
+            //float: right;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        
+      -->   
+        /* Share Popup */
+        #sharePopup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--card-bg);
+        border-radius: 10px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        width:auto;
+        text-align: center;
+        }
+        
+        
+        .close {
+            float: right;
+            font-size: 25px;
+            cursor: pointer;
+            margin: 0 5px;
+            padding-top: 2px;
+        }
+   
+sharePopup-h3p-h3{
+       
+       padding-left: 30px;
+   }
+   
+   .share-btn-box{
+
+        width: 100%;
+        height: 40px;
+           
+   }
+        
+    </style>
+</head>
+<body>     
+    
+     
+    <div class="profile-card">
+        
+      <div class="share-btn-box">
+          <button onclick="openSharePopup()" class="share-btn share-all">
+        <i class="bi bi-three-dots-vertical"></i>
+        </button>
+   
+      </div>
+        <img src="images.jpeg" alt="Profile Image" class="profile-img">
+        <h2>Anurag Gautam</h2>
+        <p>Web Developer & Content Creator</p>
+        
+        
+        <div class="share-container">
+         <a href="https://github.com/anuxagfr" target="_blank" class="">
+                        <i class="bi bi-github share-btn "></i>
+                    </a>
+                       <a href="https://x.com/anuxagfr" target="_blank"><i class="bi bi-twitter-x  share-btn"></i>
+       
+         <a href="https://youtube.com/@venomxeditz" target="_blank"><i class="bi bi-youtube share-btn"></i></a>
+    
+         <a href="https://www.linkedin.com/in/anragxgautam" target="_blank"><i class="bi bi-linkedin share-btn"></i></a>
+            
+      </div>
+        
+        <div class="social-icons">
+            <div class="social-item">
+                <a href="https://instagram.com/web_code.x" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
+                <button onclick="copyLink('https://instagram.com/web_code.x')">   <i class="bi bi-copy"></i></button>
+            </div>
+                   <div class="social-item">
+                 
+                 <a href="https://instagram.com/anuxagfr" target="_blank"><i class="bi bi-instagram"></i> @anuxagfr</a>
+
+                  <button onclick="copyLink('https://instagram.com/anuxagfr')">   <i class="bi bi-copy"></i></button>
+                
+            </div>
+      <div class="social-item">
+                <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
+                <button onclick="copyLink('https://facebook.com')">   <i class="bi bi-copy"></i></button>
+            </div>
+            <div class="social-item">
+                <a href="https://t.me/web_codex" target="_blank"><i class="bi bi-telegram"></i> Telegram</a>
+                
+                
+                
+                <button onclick="copyLink('https://t.me/web_codex')">   <i class="bi bi-copy"></i></button>
+                
+            </div>
+               <div class="social-item">
+                 
+              <a href="mailto:editzofficial94@gmail.com"><i class="bi bi-envelope"></i> Email</a>
+    
+                  <button onclick="copyLink('https://telegram.me')">   <i class="bi bi-copy"></i></button>
+                
+            </div>
+        </div>
+
+      
+        
+    <!-- Share Popup -->
+  
+  
+        
+    <div id="sharePopup" class="popup">
+        
+        <div class="popup-content">
+               <span class="close" onclick="closeSharePopup()"><i class="bi bi-x-circle"></i></span>
+  <h3 id="sharePopup-h3">Share This Page</h3>
+  
+            <!-- 
+               <span class="close" onclick="closeSharePopup()"><i class="bi bi-x-circle"></i></span>
+   
+           <h3>Share This Page</h3>
+   
+     -->          
+ <div id="qr-container"class="container5">
+  
+            <h3>Scan QR Code</h3>
+                 <div id="qrcode"></div>
+            <br>
+     <small>https://links.dev/devspherex</small>
+               
+   </div>
+      
+      
+ <div class="container3">
+          
+ <div class="seiper-container2">
+         <div class="swiper-wrapper">
+            <div class="swiper-slide">
+           
+                <div class="share-btn share-all" onclick="universalShare()"><i class="bi bi-share-fill"></i> 
+    </div>
+                <span class="social-name">share</span>
+                
+                </div></div>
+          
+
+            </div>
+    
+    <!-- Swiper Slider -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                
+            
+                <div class="share-btn copy-link" onclick="copyLink()"><i class="bi bi-link-45deg"></i></div>
+                <span class="social-name">Copy Link</span>
+            </div>
+                 <div class="swiper-slide">
+                <div class="share-btn qr-code" onclick="generateQRCode()"><i class="bi bi-qr-code"></i></div>
+                <span class="social-name">QR Code</span>
+            </div>
+       
+           
+            <div class="swiper-slide">
+                <div class="share-btn x" onclick="shareOnX()">
+                <i class="bi bi-twitter-x"></i>
+                </div>
+                <span class="social-name">Twitter</span>
+            </div>
+            <div class="swiper-slide">
+                <div class="share-btn facebook" onclick="shareOnFacebook()">
+                <i class="bi bi-facebook"></i>
+                </div>
+                <span class="social-name">Facebook</span>
+            </div>
+            <div class="swiper-slide">
+                <div class="share-btn whatsapp" onclick="shareOnWhatsApp()">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                </div>
+                <span class="social-name">WhatsApp</span>
+            </div>
+             <div class="swiper-slide">
+                <div class="share-btn telegram" onclick="shareOnTelegram()">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+                </div>
+                <span class="social-name">Telegram</span>
+            </div>
+            <div class="swiper-slide">
+                <div class="share-btn instagram" onclick="shareOnInstagram()">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                </div>
+                <span class="social-name">Instagram</span>
+            </div>
+        </div>
+    </div>
+</div>    
+ </div>
+    </div>
+    <footer>
+            <p>Made by Anurag | © 2025</p>
+        </footer>
+            <button class="share-btn1" onclick="shareLink()">Share</button>
+   
+    
+  
+    <!-- Swiper.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Initialize Swiper Slider
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView:4,
+            spaceBetween:10,
+            //loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false
+            }
+        });
+
+        const currentURL = window.location.href;
+
+        function copyLink() {
+            navigator.clipboard.writeText(currentURL).then(() => {
+                alert("Link copied to clipboard! You can paste it in your Instagram story or bio.");
+            });
+        }
+        
+// Open Share Popup
+function openSharePopup() {
+    document.getElementById("sharePopup").style.display = "flex";
+}
+
+// Close Share Popup
+function closeSharePopup() {
+    document.getElementById("sharePopup").style.display = "none";
+}
+
+        function shareOnX() {
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentURL)}`, "_blank");
+        }
+
+        function shareOnFacebook() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentURL)}`, "_blank");
+        }
+
+        function shareOnWhatsApp() {
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(currentURL)}`, "_blank");
+        }
+
+        function shareOnLinkedIn() {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentURL)}`, "_blank");
+        }
+
+        function shareOnTelegram() {
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(currentURL)}`, "_blank");
+        }
+
+        function shareOnReddit() {
+            window.open(`https://www.reddit.com/submit?url=${encodeURIComponent(currentURL)}`, "_blank");
+        }
+
+        function shareByEmail() {
+            window.location.href = `mailto:?subject=Check this out!&body=${encodeURIComponent(currentURL)}`;
+        }
+
+        function shareOnInstagram() {
+            copyLink();  
+            window.open(`https://www.instagram.com/`, "_blank");
+        }
+
+    function generateQRCode() {
+        document.getElementById("qr-container").style.display = "block";
+        document.getElementById("qrcode").innerHTML = ""; 
+
+        new QRCode(document.getElementById("qrcode"), {
+            text: window.location.href,  // The URL to encode
+            width: 150,  // Width of QR code
+            height: 150,  // Height of QR code
+            
+            colorDark: "#FFFFFF",  // Change the QR code color (foreground)
+            colorLight: "#000000",  // Change the background color
+            correctLevel: QRCode.CorrectLevel.H  // High error correction level
+        });
+    }
+
+        
+        function universalShare() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title,
+                    text: "Check this out!",
+                    url: currentURL
+                }).catch((error) => console.log("Error sharing:", error));
+            } else {
+                alert("Sharing not supported on this device. Try copying the link instead.");
+            }
+        }
+        
+        
+        
+        
+               function shareLink() {
+    if (navigator.share) {
+        navigator.share({
+            title: "Check out Anurag's Links",
+            text: "Here are my social media and project links!",
+            url: window.location.href
+        }).then(() => {
+            console.log("Thanks for sharing!");
+        }).catch(console.error);
+    } else {
+    openSharePopup()
+        alert("Your browser does not support sharing.");
+    }
+}
+
+    </script>
+
+</body>
+</html>
+    
+      
