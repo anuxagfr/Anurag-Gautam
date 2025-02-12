@@ -1,6 +1,4 @@
- 
-        
-        /* Light Mode */
+    /* Light Mode */
 :root {
     --bg-color: #f4f4f4;
     --text-color: #333;
@@ -20,7 +18,7 @@
     --shadow-color: rgba(255, 255, 255, 0.2);
 }
 
-/* General Styles */
+/* General Styles 
 body {
     font-family: Arial, sans-serif;
     background-color: var(--bg-color);
@@ -33,7 +31,7 @@ body {
     margin: 0;
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
+*/
 /* Theme Toggle Button */
 #theme-toggle {
     position: absolute;
@@ -49,6 +47,7 @@ body {
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+
 #theme-toggle:hover {
     transform: scale(1.1);
 }
@@ -56,12 +55,17 @@ body {
 /* Profile Card */
 .profile-card {
     background: var(--card-bg);
-    padding: 20px;
+    padding: 20px;    
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 10px var(--shadow-color);
     width: 350px;
     transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+        
 }
 
 .profile-img {
@@ -132,23 +136,9 @@ a {
     transform: scale(1.1);
 }
 
-/* Share Button */
-.share-btn {
-    //background: var(--btn-bg);
-    //color: var(--btn-text);
-    color:#161a2b;
-    border: none;
-    //padding: 10px 15px;
-    font-size: 28px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
-    box-shadow: 0 2px 5px var(--shadow-color);
-}
 
 .share-btn:hover {
       background:#7073e0;
- 
     color:#ffffff;
     transform: scale(1.1);
 }
@@ -156,10 +146,91 @@ a {
  .share-container {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
+        }
+        
+        /* Share Button */
+.share-btn {
+   
+    color:#161a2b;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;            
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        
+}
+       .share-btn1 {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 5px 10px;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+        
+        /* share box1*/
+        
+        .seiper-container2 {
+            width: 100px;
+            background: var(--card-bg);
+            overflow: hidden;
+            border-radius: 10px 0px 0px 10px ;
+            
+        }
+        
+        /* share box2*/
+        
+        .swiper-container {
+            width:100%;
+            background: var(--card-bg);            
+            overflow: hidden;
+            border-radius: 0px 10px 10px 0px ;
+        
         }
         
         
+        .container3 {
+            width: 100%;
+            height: 80px;
+            max-width: 350px;
+            display: flex;  
+            background: var(--card-bg);
+            overflow: hidden;
+            border-radius: 10px 10px 10px 10px ;
+           
+        }
+        
+        /* Scan QR Code box */
+        .container5 {
+         width:auto;
+         margin:0px auto;
+         display: flex;  
+         background: var(--card-bg);
+         overflow: hidden;
+         border-radius: 10px 10px 10px 10px ;
+           
+        }
+        
+        .swiper-wrapper {
+            display: flex;
+        }
+        .swiper-slide {
+            display: flex;  
+            margin-top: 5px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
         .share-btn {
             width: 40px;
             height: 40px;
@@ -168,19 +239,95 @@ a {
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            transition: transform 0.2s;
+            float: right;
+            transition: transform 0.2s;}
+     
+     
+ .share-btn:hover {transform: scale(1.1);}
+      .copy-link{ background: #ffffff; }
+      .x        { background: #ffffff; }
+      .share-all{ background: #ffffff; }
+      .facebook { background: #1877F2; }
+      .whatsapp { background: #25D366; }
+      .linkedin { background: #0077B5; }
+      .telegram { background: #0088CC; }
+      .reddit   { background: #FF4500; }
+      .email    { background: #D44638; }
+      .instagram{ background: #E1306C; }
+      .qr-code  { background: #ffffff; }
+      
+      .icon {
+            width: 25px;
+            height: 25px;
         }
-       .share-btn1 {
-    background: var(--btn-bg);
-    color: var(--btn-text);
-  
-    border: none;
-   padding: 5px 10px;
-    font-size: 28px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
-    box-shadow: 0 2px 5px var(--shadow-color);
-}
+        .social-name {
+            font-size: 12px;
+            margin: 5px 2px ;
+            font-weight: bold;
+        }
+        
+        h3{
+            
+            margin: 5px;
+        }
+        .container4 h2{
+          margin: 5px;
+        }
+        
+        
+        /* qr code  */
+        
+        #qr-container {
+            display: none;
+        }
+        
+#qrcode {
+        display: inline-block;
+        padding:5px;
+        background: white; 
+        border: 2px solid black; 
+        border-radius: 10px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+           
+    }
+     <!--        .close {
+            //float: right;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        
+      -->   
+        /* Share Popup */
+        #sharePopup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--card-bg);
+        border-radius: 10px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        width:auto;
+        text-align: center;
+        }
+        
+        
+        .close {
+            float: right;
+            font-size: 25px;
+            cursor: pointer;
+            margin: 0 5px;
+            padding-top: 2px;
+        }
+   
+sharePopup-h3p-h3{
+       
+       padding-left: 30px;
+   }
+   
+   .share-btn-box{
 
-    
+        width: 100%;
+        height: 40px;
+           
+   }
