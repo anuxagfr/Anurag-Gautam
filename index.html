@@ -23,10 +23,17 @@
    <!--  <button id="theme-toggle">🌙 Toggle Theme</button>
     
     --> <div class="profile-card">
-        <img src="image.jpeg" alt="Profile Image" class="profile-img">
+        
+      <div class="share-btn-box">
+          <button onclick="openSharePopup()" class="share-btn share-all">
+        <i class="bi bi-three-dots-vertical"></i>
+        </button>
+   
+      </div>
+        <img src="images.jpeg" alt="Profile Image" class="profile-img">
         <h2>Anurag Gautam</h2>
-        <h4>@anuxagfr</h4>
         <p>Web Developer & Content Creator</p>
+        
         
         <div class="share-container">
          <a href="https://github.com/anuxagfr" target="_blank" class="">
@@ -34,14 +41,11 @@
                     </a>
                        <a href="https://x.com/anuxagfr" target="_blank"><i class="bi bi-twitter-x  share-btn"></i>
        
-         <a href="https://youtube.com/@venomxeditz" target="_blank"><i class="bi bi-youtube share-btn"></i></a>  
-         
-         <a href="https://www.linkedin.com/in/anuxag" target="_blank"><i class="bi bi-linkedin share-btn"></i></a>
+         <a href="https://youtube.com/@venomxeditz" target="_blank"><i class="bi bi-youtube share-btn"></i></a>
+    
+         <a href="https://www.linkedin.com/in/anragxgautam" target="_blank"><i class="bi bi-linkedin share-btn"></i></a>
             
-        
-                               
       </div>
-          
         
         <div class="social-icons">
             <div class="social-item">
@@ -67,53 +71,118 @@
                 <button onclick="copyLink('https://t.me/web_codex')">   <i class="bi bi-copy"></i></button>
                 
             </div>
-                 <div class="social-item">
-                 
-           <a href="https://webcodeze.blogspot.com" target="_blank"><i class="bi bi-globe"></i>webcodeze</a>
-      
-                  <button onclick="copyLink('https://webcodeze.blogspot.com')">   <i class="bi bi-copy"></i></button>
-                
-            </div>
-            <div class="social-item">
+               <div class="social-item">
                  
               <a href="mailto:editzofficial94@gmail.com"><i class="bi bi-envelope"></i> Email</a>
     
-                  <button onclick="copyLink('mailto:editzofficial94@gmail.com')">   <i class="bi bi-copy"></i></button>
-                
-            </div>    
-              <!--  <div class="social-item">
-                <a href="https://github.com/DevSphereX" target="_blank">  <i class="bi bi-github"></i> GitHub</a>
-                <button onclick="copyLink('https://github.com/DevSphereX')">   <i class="bi bi-copy"></i></button>
-            </div> -->
-         
-     <!-- <div class="social-item">
-                 
-              <a href="https://youtube.com/@EditzOfficial" target="_blank"><i class="bi bi-youtube"></i> YouTube</a>
-                <button onclick="copyLink('https://telegram.me')">   <i class="bi bi-copy"></i></button>
-                
-            </div> --> 
-     <!--  <div class="social-item">
-                 
-         <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
-            
-        
                   <button onclick="copyLink('https://telegram.me')">   <i class="bi bi-copy"></i></button>
                 
-            </div> -->
-       
-
+            </div>
         </div>
 
-    
-                        <!-- Links -->
-        <div class="links">
-           
-        <button class="share-btn1" onclick="shareLink()">Share</button>
+      
+        
+    <!-- Share Popup -->
+  
+  
+        
+    <div id="sharePopup" class="popup">
+        
+        <div class="popup-content">
+               <span class="close" onclick="closeSharePopup()"><i class="bi bi-x-circle"></i></span>
+  <h3 id="sharePopup-h3">Share This Page</h3>
+  
+            <!-- 
+               <span class="close" onclick="closeSharePopup()"><i class="bi bi-x-circle"></i></span>
    
+           <h3>Share This Page</h3>
+   
+     -->          
+ <div id="qr-container"class="container5">
+  
+            <h3>Scan QR Code</h3>
+                 <div id="qrcode"></div>
+            <br>
+     <small>https://links.dev/devspherex</small>
+               
+   </div>
+      
+      
+ <div class="container3">
+          
+ <div class="seiper-container2">
+         <div class="swiper-wrapper">
+            <div class="swiper-slide">
+           
+                <div class="share-btn share-all" onclick="universalShare()"><i class="bi bi-share-fill"></i> 
+    </div>
+                <span class="social-name">share</span>
+                
+                </div></div>
+          
+
+            </div>
     
-     </div>    <footer>
+    <!-- Swiper Slider -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                
+            
+                <div class="share-btn copy-link" onclick="copyLink()"><i class="bi bi-link-45deg"></i></div>
+                <span class="social-name">Copy Link</span>
+            </div>
+                 <div class="swiper-slide">
+                <div class="share-btn qr-code" onclick="generateQRCode()"><i class="bi bi-qr-code"></i></div>
+                <span class="social-name">QR Code</span>
+            </div>
+       
+           
+            <div class="swiper-slide">
+                <div class="share-btn x" onclick="shareOnX()">
+                <i class="bi bi-twitter-x"></i>
+                </div>
+                <span class="social-name">Twitter</span>
+            </div>
+            <div class="swiper-slide">
+                <div class="share-btn facebook" onclick="shareOnFacebook()">
+                <i class="bi bi-facebook"></i>
+                </div>
+                <span class="social-name">Facebook</span>
+            </div>
+            <div class="swiper-slide">
+                <div class="share-btn whatsapp" onclick="shareOnWhatsApp()">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                </div>
+                <span class="social-name">WhatsApp</span>
+            </div>
+             <div class="swiper-slide">
+                <div class="share-btn telegram" onclick="shareOnTelegram()">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+                </div>
+                <span class="social-name">Telegram</span>
+            </div>
+            <div class="swiper-slide">
+                <div class="share-btn instagram" onclick="shareOnInstagram()">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                </div>
+                <span class="social-name">Instagram</span>
+            </div>
+        </div>
+    </div>
+</div>    
+ </div>
+    </div>
+    <footer>
             <p>Made by Anurag | © 2025</p>
         </footer>
+            <button class="share-btn1" onclick="shareLink()">Share</button>
+   
+    
+  
+    <!-- Swiper.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
   
 </body>
 </html>
