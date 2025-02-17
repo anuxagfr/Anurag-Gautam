@@ -243,22 +243,56 @@ function closeSharePopup() {
             window.open(`https://www.instagram.com/`, "_blank");
         }
 
-    function generateQRCode() {
-        document.getElementById("qr-container").style.display = "block";
-        document.getElementById("qrcode").innerHTML = ""; 
 
-        new QRCode(document.getElementById("qrcode"), {
-            text: window.location.href,  // The URL to encode
-            width: 150,  // Width of QR code
-            height: 150,  // Height of QR code
-            
-            colorDark: "#FFFFFF",  // Change the QR code color (foreground)
-            colorLight: "#000000",  // Change the background color
-            correctLevel: QRCode.CorrectLevel.H  // High error correction level
+        function generateQRCode() {
+    let qrContainer = document.getElementById("qr-container");
+    let qrCodeDiv = document.getElementById("qrcode");
+    let qrDownloadBtn = document.getElementById("qr-download");
+
+    qrContainer.style.display = "block"; // Show the QR section
+    qrCodeDiv.innerHTML = ""; // Clear old QR Code before generating a new one
+    qrDownloadBtn.style.display = "none"; // Hide download button initially
+
+    // Show loading animation
+    qrCodeDiv.innerHTML = "<p>Generating QR Code...</p>";
+
+    setTimeout(() => {
+        qrCodeDiv.innerHTML = ""; // Remove loading text
+
+        let qr = new QRCode(qrCodeDiv, {
+            text: "https://anuxagfr.github.io/Anurag-Gautam",
+            width: 150,
+            height: 150,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
         });
-    }
 
-        
+        // Delay the download button appearance for better UX
+        setTimeout(() => {
+            qrDownloadBtn.style.display = "block";
+        }, 1000);
+    }, 1500);
+
+    // Auto-copy link
+    navigator.clipboard.writeText("https://anuxagfr.github.io/Anurag-Gautam").then(() => {
+        alert("QR Code Link Copied!");
+    });
+}
+
+// Function to Download the QR Code
+function downloadQRCode() {
+    let qrCanvas = document.querySelector("#qrcode canvas");
+    if (qrCanvas) {
+        let qrImage = qrCanvas.toDataURL("image/png");
+        let downloadLink = document.createElement("a");
+        downloadLink.href = qrImage;
+        downloadLink.download = "Anurag_Gautam_QR.png";
+        downloadLink.click();
+    } else {
+        alert("QR Code not generated yet!");
+    }
+}
         function universalShare() {
             if (navigator.share) {
                 navigator.share({
